@@ -1,0 +1,35 @@
+---
+description: 
+alwaysApply: true
+---
+
+# 프로젝트 기술 스택
+- Framework: Next.js (App Router)
+- Language: TypeScript
+- UI Library: shadcn
+- Styling: Tailwind CSS
+- Database/ORM: Prisma
+- Package Manager: pnpm
+
+# 공통 규칙
+- 모든 파일과 폴더 이름은 kebab-case를 사용한다. (단, 컴포넌트 파일은 PascalCase 가능)
+- 컴포넌트는 'function' 키워드를 사용한 Named Export를 선호한다.
+- 불필요한 주석은 피하고, 코드 자체로 의도를 드러낸다.
+- 절대 'any' 타입을 사용하지 않는다.
+
+# 프론트엔드 (Next.js & shadcn) 규칙
+- 기본적으로 Server Components를 사용하고, 인터랙션이 필요한 경우에만 'use client'를 상단에 명시한다.
+- UI 컴포넌트는 반드시 `@/components/ui`에 있는 shadcn 컴포넌트를 우선 활용한다.
+- 컴포넌트 사용 전 설치 여부를 확인하고 설치가 필요하면 설치를 제안한다.
+- shadcn-ui라는 이름의 패키지는 이제 deprecated되었으므로 shadcn을 사용한다. e.g. pnpm dlx shadcn@latest add button
+
+# 백엔드 (Prisma & API) 규칙
+- 모든 DB 작업은 `lib/prisma.ts`에 정의된 싱글톤 인스턴스를 사용한다.
+- 입력 데이터 검증을 위해 `Zod` 라이브러리를 필수적으로 사용한다.
+- API Route는 `app/api/` 경로 내에 작성하며, 각 메서드(GET, POST 등)를 명확히 구분한다.
+- API 응답 규격은 성공 시 `{ data: T }`, 실패 시 `{ error: string, code?: string }` 형태를 유지한다.
+- Prisma 스키마 변경 시 반드시 `npx prisma generate`를 언급하여 타입을 동기화한다.
+
+# Cursor AI 출력 규칙
+- 파일 전체 내용을 출력하며, "// 기존 코드 동일" 같은 생략 표현을 사용하지 않는다.
+- 새로운 패키지 설치가 필요할 경우 반드시 `pnpm add` 명령어를 제안한다.
