@@ -1,5 +1,4 @@
 import type { Preview } from "@storybook/react";
-import React from "react";
 import "../src/app/globals.css";
 
 const preview: Preview = {
@@ -15,13 +14,11 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => {
-      return React.createElement(
-        "div",
-        { className: "min-h-screen bg-background text-foreground" },
-        React.createElement(Story)
-      );
-    },
+    (Story) => (
+      <div className="min-h-screen bg-background text-foreground">
+        <Story />
+      </div>
+    ),
   ],
 };
 
