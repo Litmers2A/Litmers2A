@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 1️⃣ Commit Message Convention
 
-## Getting Started
+## 📍 기본 형식
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+type: 작업 내용
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- type은 소문자
+- 간결하게 작성
+- 한글 작성 가능
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📍 예시
 
-## Learn More
+```
+chore: storybook 패키지 설치
+feat: 로그인 기능 구현
+fix: 회원가입 중복 요청 버그 수정
+docs: README 수정
+refactor: 사용자 상태 관리 로직 개선
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📍 Type 목록
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Type | 설명 |
+|------|------|
+| feat | 새로운 기능 추가 |
+| fix | 버그 수정 |
+| docs | 문서 수정 |
+| style | 코드 스타일 변경 (로직 변경 없음) |
+| refactor | 리팩토링 |
+| test | 테스트 코드 |
+| chore | 설정, 패키지, 빌드 관련 작업 |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 2️⃣ Branch Naming Convention
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📍 기본 형식
+
+```
+type/#이슈번호
+```
+
+## 📍 예시
+
+```
+feat/#12
+fix/#7
+chore/#3
+refactor/#21
+```
+
+---
+
+## 📍 규칙
+
+- 반드시 이슈 생성 후 브랜치 생성
+- 이슈 번호 포함 필수
+- 브랜치에 작업 설명을 길게 쓰지 않는다
+- `main` 브랜치 직접 push 금지
+
+---
+
+# 3️⃣ Pull Request Convention
+
+## 📍 PR Title 규칙
+
+### 기본 형식
+
+```
+[TYPE] 작업 내용
+```
+
+- TYPE은 대문자
+- 대괄호 필수
+- 커밋 메시지와 동일한 의미로 작성
+
+---
+
+### 예시
+
+```
+[CHORE] storybook 패키지 설치
+[FEAT] 로그인 기능 구현
+[FIX] 회원가입 중복 요청 버그 수정
+[REFACTOR] 사용자 상태 관리 로직 개선
+[DOCS] README 수정
+```
+
+---
+
+# 4️⃣ Label Rule
+
+PR 생성 시 반드시 타입에 맞는 Label을 추가한다.
+
+## 📍 Label 목록
+
+| PR TYPE | Label |
+|---------|-------|
+| FEAT | feat |
+| FIX | fix |
+| DOCS | docs |
+| STYLE | style |
+| REFACTOR | refactor |
+| TEST | test |
+| CHORE | chore |
+
+---
+
+## 📍 Label 규칙
+
+- PR 제목의 TYPE과 Label은 반드시 일치해야 한다.
+- 기본적으로 하나의 타입 Label만 사용한다.
+- 복합 작업일 경우 가장 핵심 작업 기준으로 선택한다.
+
+---
+
+# 5️⃣ PR 작성 규칙
+
+## 📍 체크리스트
+
+- [ ] 커밋 메시지 컨벤션을 지켰는가
+- [ ] 콘솔 로그 제거했는가
+- [ ] 정상 동작 확인했는가
+- [ ] 관련 이슈 연결했는가
+
+---
+
+
+# 6️⃣ Review Rule
+
+- 최소 1명 이상 승인 후 Merge
+- 승인 없이 Merge 금지
+- 리뷰 코멘트는 반드시 반영하거나 답변 후 Resolve
+
+---
+
+# 7️⃣ Merge Rule
+
+- 기본 머지 방식: Squash and merge
+- Squash 후 커밋 메시지는 PR 제목과 동일하게 유지
+- Merge 후 브랜치 삭제
